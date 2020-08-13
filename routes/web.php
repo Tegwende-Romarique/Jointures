@@ -14,16 +14,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {return view('welcome');});
+//  Route::get('/', function () {return view('welcome')});
+ Route::get('/', 'CapitalesController@create')->name('accueil');
 
-
-Route::get('form-jointures', 'CapitalesController@create');
-Route::post('EnregistrementCapitale', 'CapitalesController@store');
-
-Route::post('EnregistrementPays', 'PaysController@store');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// Les routes
+Route::get('form-jointures', 'CapitalesController@create');
+Route::post('EnregistrementCapitale', 'CapitalesController@store');
+Route::post('EnregistrementPays', 'PaysController@store');
+Route::get('liste-jointures', 'PaysController@index');
+
+
 
 

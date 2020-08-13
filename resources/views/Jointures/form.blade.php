@@ -16,7 +16,7 @@
 		<div class="login-form">
 			<div class="sign-in-htm">
 				<div class="group">
-					<label for="nom" class="label">Nom</label>
+					<label for="nom" class="label">Pays</label>
 					<input id="nom" type="text" class="input" name="nom" required>
 				</div>
 
@@ -25,7 +25,7 @@
 					<input id="president" type="text" class="input" data-type="text" name="president" required> 
 				</div>
 
-				<div class="group">
+				<div class="">
 					<label for="president" class="label">Capitale</label>
 					<select name="capitale_id" id="" class="input" data-type="text" name="president" required> 
                        @foreach($capitale as $capital)
@@ -53,12 +53,15 @@
 				</div>
 				<div class="group">
 				<button type="submit" class="button">Soumettre</button>
-				</div>
+				</div>     
+            </form>
 				<div class="hr"></div>
+                                      
+<a href="{{url('liste-jointures')}}" class="liens"><button type="button" class="btn btn-success btn-xl btn3d btn-xs mb-2">
+      <i class="fa fa-plus-circle"></i>Voir les pays</button></a>
 			</div>
 		</div>
 	</div>
-</form>
 </div>
 
 

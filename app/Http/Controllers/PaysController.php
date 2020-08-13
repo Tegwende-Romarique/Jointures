@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Capitale;
 use App\Pays;
+use DB;
 
 
 class PaysController extends Controller
@@ -12,16 +13,11 @@ class PaysController extends Controller
    
     public function index()
     {
-        $capital = Capitale::all();
-        $pays = Pays::all();
-
-        DB::table('pays')
-        ->join('capitale', 'pays.id', '=', 'capitale.pays_id')
-        ->join('orders', 'users.id', '=', 'orders.user_id')
-        ->select('users.id', 'contacts.phone', 'orders.price')
-        ->get();
-
-     return view('Jointures/liste', ['capitale'=>$capital, 'pays'=>$pays]);   
+      $data = DB::table('pays')
+             ->join('capitales', 'capitales.id', '=', 'pays.capitale_id')
+             ->select('pays.nom', 'pays.president', 'capitales.capitale', 'capitales.population')
+             ->get();
+     return view('Jointures/liste', compact('data'));   
     }
 
     function store($id=null,Request $request)
